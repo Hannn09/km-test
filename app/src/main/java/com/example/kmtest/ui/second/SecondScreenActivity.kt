@@ -3,6 +3,7 @@ package com.example.kmtest.ui.second
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kmtest.R
 import com.example.kmtest.ui.third.MainActivity
 import com.example.kmtest.ui.first.FirstScreenActivity.Companion.USERNAME
 import com.example.kmtest.ui.UserAdapter.Companion.NAME
@@ -19,7 +20,7 @@ class SecondScreenActivity : AppCompatActivity() {
 
         val username = intent.getStringExtra(USERNAME)
 
-        val name = intent.getStringExtra(NAME)
+        val name = intent.getStringExtra(NAME) ?: getString(R.string.selected_user_name)
 
         secondScreenBinding.apply {
             icBack.setOnClickListener {

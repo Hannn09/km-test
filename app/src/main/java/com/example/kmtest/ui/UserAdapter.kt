@@ -50,7 +50,7 @@ class UserAdapter : PagingDataAdapter<DataItem, UserAdapter.ListViewHolder>(DIFF
         const val NAME = "NAME"
         val DIFF_ITEM_CALLBACK = object : DiffUtil.ItemCallback<DataItem>() {
             override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
@@ -58,7 +58,7 @@ class UserAdapter : PagingDataAdapter<DataItem, UserAdapter.ListViewHolder>(DIFF
                         oldItem.email == newItem.email &&
                         oldItem.avatar == newItem.avatar &&
                         oldItem.firstName == newItem.firstName &&
-                        oldItem.lastName == newItem.lastName 
+                        oldItem.lastName == newItem.lastName
             }
 
         }

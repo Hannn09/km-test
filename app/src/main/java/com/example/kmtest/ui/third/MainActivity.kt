@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.rvUser.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = userAdapter.withLoadStateFooter(
-                footer =  LoadingStateAdapter { userAdapter.retry() }
+                footer = LoadingStateAdapter { userAdapter.retry() }
             )
 
         }
@@ -51,8 +51,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAction() {
         activityMainBinding.swipeRefresh.apply {
-            userAdapter.refresh()
-            isRefreshing = false
+            setOnRefreshListener {
+                userAdapter.refresh()
+                isRefreshing = false
+
+            }
         }
     }
 }
